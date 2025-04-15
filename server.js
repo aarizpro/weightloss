@@ -5,6 +5,8 @@ const cors = require('cors');
 const userRoutes = require("./routes/user");
 const authRoutes = require("./routes/auth");
 const orderRoutes = require("./routes/orderMasterRoutes");
+const cassetteRoutes = require("./routes/cassetteMasterRoutes");
+const bagRoutes = require("./routes/bagMasterRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +19,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/order", orderRoutes);
+app.use("/api/cassette", cassetteRoutes);
+app.use("/api/bag", bagRoutes);
 
 mongoose.connect(MONGO_URL)
   .then(() => {
